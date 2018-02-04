@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id ="salary" class="main.java.MySalary">
+        <constructor-arg value = "2"/>
+    </bean>
+
+    <bean id="ivanov" class="main.java.FruitsSeller">
+        <constructor-arg value="2"/>
+        <constructor-arg ref="salary"/>
+        <constructor-arg ref="all_goods"/>
+
+        <property name="vacation" value="31" />
+
+
+
+    </bean>
+
+    <bean id ="dairy" class="main.java.Dairy">
+        <constructor-arg value = "2"/>
+    </bean>
+
+    <bean id ="medicine" class="main.java.Medicine">
+        <constructor-arg value = "6"/>
+    </bean>
+
+    <bean id ="books" class="main.java.Books">
+        <constructor-arg value = "10"/>
+    </bean>
+
+    <bean id = "all_goods" class="main.java.AllGoodsSeller">
+        <property name="goods">
+            <list>
+                <ref bean="medicine"/>
+                <ref bean="books"/>
+                <ref bean="dairy"/>
+            </list>
+        </property>
+    </bean>
+
+
+</beans>
+
